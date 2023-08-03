@@ -1,0 +1,27 @@
+{
+    "allow_change": [
+        "concurrent_hash_map.h"
+    ],
+    "tests": [
+        "test_hash_table"
+    ],
+    "extra_test_options": [
+        "--gtest_repeat=10",
+        "--gtest_shuffle"
+    ],
+    "benchmarks": [
+        "bench_hash_table"
+    ],
+    "scorer": "scorer.py",
+    "forbidden_containers": [
+        "map",
+        "set",
+        "multimap",
+        "multiset",
+        "unordered_map",
+        "unordered_set",
+        "unordered_multimap",
+        "unordered_multiset",
+        "shared_mutex"
+    ]
+}

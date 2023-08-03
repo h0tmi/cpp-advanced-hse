@@ -1,0 +1,6 @@
+{
+    "allow_change": "multiplication.cpp",
+    "tests": "test_multiplication",
+    "solutions": "private",
+    "disable_tsan": true
+}

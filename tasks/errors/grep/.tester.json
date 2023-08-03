@@ -1,0 +1,7 @@
+{
+    "allow_change": "grep.h",
+    "tests": "test_grep",
+    "solutions": "private",
+    "forbidden_regexp": [],
+    "linter": false
+}

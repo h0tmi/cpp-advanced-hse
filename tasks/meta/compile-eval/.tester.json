@@ -1,0 +1,7 @@
+{
+    "allow_change": ["pow.h", "sqrt.h", "another_pow.h", "hash.h", "next_prime.h", "determinant.h"],
+    "tests": ["test_templates", "test_constexpr", "test_constexpr_simple"],
+    "benchmarks": [],
+    "linter": false,
+    "scorer": []
+}

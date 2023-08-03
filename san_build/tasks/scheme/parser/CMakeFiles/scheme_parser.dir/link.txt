@@ -1,0 +1,2 @@
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ar qc libscheme_parser.a CMakeFiles/scheme_parser.dir/tokenizer.cpp.o CMakeFiles/scheme_parser.dir/parser.cpp.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ranlib libscheme_parser.a

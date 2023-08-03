@@ -1,0 +1,8 @@
+### Global ###
+## Directories
+.idea
+cmake-build-*
+build
+
+## Files
+.DS_Store

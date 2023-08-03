@@ -1,0 +1,11 @@
+{
+  "allow_change": [
+    "*.cpp",
+    "*.h",
+    "sources.cmake"
+  ],
+  "tests": "test_scheme_advanced",
+  "solutions": "private",
+  "disable_tsan": true,
+  "custom_asan_options": "detect_leaks=0"
+}

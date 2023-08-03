@@ -1,0 +1,24 @@
+cflags = -std=c++17 -Wall
+
+# Now Ninja knows about headers.
+rule header_aware_cxx
+  depfile = $out.d
+  command = clang++ $cflags -c $in -o $out -MD -MF $out.d
+
+rule link_cxx
+  command = clang++ $in -o $out
+
+rule run
+  command = ./$in
+
+rule clean
+  command = rm -f *.o *.o.d main
+
+build strings.o: header_aware_cxx strings.cpp
+build kv.o: header_aware_cxx kv.cpp
+build main.o: header_aware_cxx main.cpp
+
+build main: link_cxx kv.o strings.o main.o
+build run_main: run main
+
+build clean: clean

@@ -1,0 +1,13 @@
+{
+    "allow_change": [
+        "sema.h"
+    ],
+    "tests": [
+        "test_semaphore"
+    ],
+    "extra_test_options": [
+        "--gtest_repeat=10",
+        "--gtest_shuffle"
+    ],
+    "benchmarks": []
+}

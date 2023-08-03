@@ -1,0 +1,1 @@
+add_racket_test(test_interpreter)

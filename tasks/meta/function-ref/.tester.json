@@ -1,0 +1,5 @@
+{
+    "allow_change": ["function_ref.h"],
+    "tests": ["test_function_ref"],
+    "linter": false
+}

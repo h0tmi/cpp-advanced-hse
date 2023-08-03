@@ -1,0 +1,5 @@
+{
+    "allow_change": ["constexpr_map.h", "sort.h"],
+    "tests": ["test_constexpr_map"],
+    "linter": false
+}

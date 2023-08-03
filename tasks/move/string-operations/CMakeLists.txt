@@ -1,0 +1,3 @@
+add_catch(test_string_operations string_operations.cpp string_operations_test.cpp)
+
+target_link_libraries(test_string_operations allocations_checker)

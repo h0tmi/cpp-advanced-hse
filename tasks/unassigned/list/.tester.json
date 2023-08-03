@@ -1,0 +1,9 @@
+{
+    "allow_change": "list.h",
+    "tests": "test_list",
+    "solutions": "private",
+    "forbidden_regexp": [
+        "std\\s*::\\s*list",
+        "#include\\s*<list>"
+    ]
+}

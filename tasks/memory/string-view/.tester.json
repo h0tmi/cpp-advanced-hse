@@ -1,0 +1,13 @@
+{
+    "allow_change": "string_view.h",
+    "tests": "test_string_view",
+    "solutions": "private",
+    "forbidden_regexp": [
+        "std\\s*::\\s*string_view",
+        "std\\s*::\\s*basic_string_view"
+    ],
+    "forbidden_containers" : [
+        "string_view"
+    ],
+    "disable_tsan": true
+}

@@ -1,0 +1,7 @@
+{
+    "allow_change": ["solution/*"],
+    "review": true,
+    "tests": [],
+    "type": "ctf",
+    "linter": false
+}

@@ -1,0 +1,6 @@
+### Bazel example ###
+## Directories
+bazel-*
+
+## Files
+!BUILD

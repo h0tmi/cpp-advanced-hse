@@ -1,0 +1,2 @@
+add_library(allocations_checker STATIC allocations_checker.cpp)
+target_include_directories(allocations_checker PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})

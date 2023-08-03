@@ -1,0 +1,5 @@
+{
+  "allow_change": "defer.h",
+  "tests": "test_defer",
+  "solutions": "private"
+}

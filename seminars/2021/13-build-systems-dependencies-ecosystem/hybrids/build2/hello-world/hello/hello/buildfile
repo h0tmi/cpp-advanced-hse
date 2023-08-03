@@ -1,0 +1,7 @@
+libs =
+#import libs += libhello%lib{hello}
+
+# Makefile-like target on the left and prerequisites on the right
+exe{hello}: {hxx ixx txx cxx}{**} $libs testscript
+
+cxx.poptions =+ "-I$out_root" "-I$src_root"

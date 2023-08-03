@@ -1,0 +1,5 @@
+{
+    "allow_change": "lambda_combiner.h",
+    "tests": "test_lambda_combiner",
+    "solutions": "private"
+}

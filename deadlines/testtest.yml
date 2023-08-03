@@ -1,0 +1,242 @@
+# Add new groups at the bottom
+
+scoring:
+  policies:
+  - name: hard
+    kind: linear
+    spec:
+      after: 1h
+      multiplier: 0
+  - name: notsohard
+    kind: exp
+    spec:
+      multiplier: 120h
+      threshold: 0.3
+
+  groups:
+  - name: weekly
+    weight: 4.0
+    policy: notsohard
+
+  - name: large
+    weight: 6.0
+    policy: hard
+    maxScore: 3000
+
+  - name: bonus
+    weight: 1.0
+    policy: hard
+
+  defaultGroup: weekly
+  finalDeadline: 28-12-2022 01:00
+  retakePenalty: 0.6
+
+
+assignments:
+- title:    00-setup
+  start:    02-09-2022 15:00
+  deadline: 15-09-2022 23:59
+  tasks:
+  - task: intro/multiplication
+    score: 100
+  - task: intro/gcd
+    score: 100
+
+- title:    01-memory
+  start:    02-09-2022 15:00
+  deadline: 15-09-2022 23:59
+  tasks:
+  - task: memory/dedup
+    score: 100
+  - task: memory/string-view
+    score: 100
+  - task: memory/lru-cache
+    score: 100
+  - task: memory/intrusive-list
+    score: 100
+  - task: memory/deque
+    score: 100
+
+- title:    02-move
+  start:    09-09-2022 15:00
+  deadline: 22-09-2022 23:59
+  tasks:
+  - task: move/harakiri
+    score: 100
+  - task: move/reallol
+    score: 100
+  - task: move/rule-of-5
+    score: 100
+  - task: move/cow-vector
+    score: 100
+  - task: move/compressed-pair
+    score: 100
+  - task: move/string-operations
+    score: 100
+
+- title:    03-types
+  start:    16-09-2022 19:00
+  deadline: 30-09-2022 23:59
+  tasks:
+  - task: types/dungeon
+    score: 100
+  - task: types/fold
+    score: 100
+  - task: types/functors
+    score: 100
+  - task: types/itertools
+    score: 100
+
+- title:    03-smart-ptrs
+  start:    18-09-2022 22:00
+  deadline: 09-10-2022 23:59
+  group:    large
+  tasks:
+    - task:  smart-ptrs/unique
+      score: 200
+    - task:  smart-ptrs/shared
+      score: 300
+    - task:  smart-ptrs/weak
+      score: 200
+    - task:  smart-ptrs/shared-from-this
+      score: 200
+    - task:  smart-ptrs/intrusive
+      score: 100
+
+- title:    05-errors
+  start:    30-09-2022 18:00
+  deadline: 13-10-2022 23:59
+  tasks:
+  - task: errors/safe-transform
+    score: 100
+  - task: errors/defer
+    score: 100
+  - task: errors/tryhard
+    score: 100
+  - task: errors/grep
+    score: 100
+
+- title:    06-patterns
+  start:    07-10-2022 15:00
+  deadline: 20-10-2022 23:59
+  tasks:
+  - task: patterns/any
+    score: 100
+  - task: patterns/pimpl
+    score: 100
+  - task: patterns/editor
+    score: 100
+  - task: patterns/small-test-framework
+    score: 100
+  - task: patterns/scala-vector
+    score: 100 
+
+- title:    07-meta
+  start:    15-10-2022 15:00
+  deadline: 05-11-2022 23:59
+  tasks:
+  - task: meta/compile-eval
+    score: 100
+  - task: meta/constexpr-map
+    score: 100
+  - task: meta/function-ref
+    score: 100
+
+- title:    08-scheme
+  start:    17-10-2022 00:00
+  deadline: 13-11-2022 23:59
+  group:    large
+  tasks:
+    - task:  scheme/tokenizer
+      score: 200
+    - task:  scheme/parser
+      score: 200
+    - task:  scheme/basic
+      score: 300
+    - task:  scheme/advanced
+      score: 200
+    - task:  scheme/tidy
+      score: 100
+
+- title:    09-baby-threads
+  start:    05-11-2022 23:00
+  deadline: 19-11-2022 23:59
+  tasks:
+    - task: baby-threads/is-prime
+      score: 100
+    - task: baby-threads/reduce
+      score: 100
+    - task: baby-threads/hash-table
+      score: 100
+    - task: baby-threads/subset-sum
+      score: 100
+
+- title:    10-condition-variables
+  start:    11-11-2022 15:00
+  deadline: 01-12-2022 23:59
+  tasks:
+    - task: condvars/timerqueue
+      score: 100
+    - task: condvars/semaphore
+      score: 100
+    - task: condvars/rw-lock
+      score: 100
+    - task: condvars/buffered-channel
+      score: 100
+    - task: condvars/unbuffered-channel
+      score: 100
+
+- title:    11-jpeg-decoder
+  start:    21-11-2022 00:00
+  deadline: 27-12-2022 23:59
+  group:    large
+  tasks:
+    - task: jpeg-decoder/huffman
+      score: 200
+    - task: jpeg-decoder/fftw
+      score: 150
+    - task: jpeg-decoder/baseline
+      score: 250
+    - task: jpeg-decoder/faster
+      score: 150
+    - task: jpeg-decoder/fuzzing
+      score: 250
+    - task: jpeg-decoder/progressive
+      score: 250
+
+- title:    12-lock-free
+  start:    26-11-2022 00:00
+  deadline: 10-12-2022 23:59
+  tasks:
+    - task: lock-free/futex
+      score: 100
+    - task: lock-free/rw-spinlock
+      score: 100
+    - task: lock-free/mpsc-stack
+      score: 100
+    - task: lock-free/fast-queue
+      score: 100
+    - task: lock-free/hazard-ptr
+      score: 100
+    - task: lock-free/sync-map
+      score: 100
+
+- title:    bonus
+  start:    31-08-2022 18:00
+  deadline: 27-12-2022 23:59
+  group:    bonus
+  tasks:
+  - task: bonus/bad-hash
+    score: 100
+    crashme: true
+  - task: bonus/bad-rand
+    score: 100
+    crashme: true
+  - task: bonus/solve-or-die
+    score: 100
+  - task: bonus/matrix-2.0
+    score: 100
+  - task: bonus/clang-fun
+    score: 100
+  - task: bonus/executors
+    score: 500

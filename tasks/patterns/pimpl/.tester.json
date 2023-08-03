@@ -1,0 +1,6 @@
+{
+    "allow_change": "ugly.cpp",
+    "tests": "test_pimpl",
+    "solutions": "private",
+    "forbidden_regexp": []
+}

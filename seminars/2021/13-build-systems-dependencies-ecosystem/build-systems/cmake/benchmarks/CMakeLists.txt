@@ -1,0 +1,1 @@
+add_racket_benchmark(benchmark_interpreter)

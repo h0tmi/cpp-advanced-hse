@@ -1,0 +1,6 @@
+{
+    "allow_change": ["lru_cache.h", "lru_cache.cpp"],
+    "tests": "test_lru_cache",
+    "solutions": "private",
+    "disable_tsan": true
+}

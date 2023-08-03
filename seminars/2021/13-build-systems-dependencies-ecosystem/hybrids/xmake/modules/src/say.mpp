@@ -1,0 +1,13 @@
+module;
+
+#include <iostream>
+
+export module say;
+
+export class Say {
+public:
+    template <int N>
+    void Hello() {
+        std::cout << "Hello, " << N << "!" << std::endl;
+    }
+};

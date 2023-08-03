@@ -1,0 +1,199 @@
+===== Processing sorting.cpp =====
+Bad names found: 0
+Possible mistakes: 27
+
+Probably mistake in variable's "BubbleSort" name.
+Consider using "able" instead of "Bubble"
+In sorting.cpp at line 6
+
+Probably mistake in variable's "sequence" name.
+Consider using "science" instead of "sequence"
+In sorting.cpp at line 6
+
+Probably mistake in variable's "iteration" name.
+Consider using "operation" instead of "iteration"
+In sorting.cpp at line 7
+
+Probably mistake in variable's "SelectionSort" name.
+Consider using "election" instead of "Selection"
+In sorting.cpp at line 18
+
+Probably mistake in variable's "sequence" name.
+Consider using "science" instead of "sequence"
+In sorting.cpp at line 18
+
+Probably mistake in variable's "left_border" name.
+Consider using "order" instead of "border"
+In sorting.cpp at line 19
+
+Probably mistake in variable's "min_element_index" name.
+Consider using "event" instead of "element"
+In sorting.cpp at line 22
+
+Probably mistake in variable's "min_element_index" name.
+Consider using "idea" instead of "index"
+In sorting.cpp at line 22
+
+Probably mistake in variable's "OutputSequence" name.
+Consider using "out" instead of "Output"
+In sorting.cpp at line 29
+
+Probably mistake in variable's "OutputSequence" name.
+Consider using "science" instead of "Sequence"
+In sorting.cpp at line 29
+
+Probably mistake in variable's "sequence" name.
+Consider using "science" instead of "sequence"
+In sorting.cpp at line 30
+
+Probably mistake in variable's "TestBubbleSort" name.
+Consider using "able" instead of "Bubble"
+In sorting.cpp at line 38
+
+Probably mistake in variable's "test_sequence" name.
+Consider using "science" instead of "sequence"
+In sorting.cpp at line 38
+
+Probably mistake in variable's "correct_answer" name.
+Consider using "current" instead of "correct"
+In sorting.cpp at line 39
+
+Probably mistake in variable's "sequence" name.
+Consider using "science" instead of "sequence"
+In sorting.cpp at line 40
+
+Probably mistake in variable's "RunUnitTests" name.
+Consider using "test" instead of "Tests"
+In sorting.cpp at line 52
+
+Probably mistake in variable's "GetRandomSequence" name.
+Consider using "and" instead of "Random"
+In sorting.cpp at line 72
+
+Probably mistake in variable's "GetRandomSequence" name.
+Consider using "science" instead of "Sequence"
+In sorting.cpp at line 72
+
+Probably mistake in variable's "modulo" name.
+Consider using "model" instead of "modulo"
+In sorting.cpp at line 72
+
+Probably mistake in variable's "sequence" name.
+Consider using "science" instead of "sequence"
+In sorting.cpp at line 73
+
+Probably mistake in variable's "element" name.
+Consider using "event" instead of "element"
+In sorting.cpp at line 74
+
+Probably mistake in variable's "RunStressTest" name.
+Consider using "street" instead of "Stress"
+In sorting.cpp at line 80
+
+Probably mistake in variable's "max_modulo" name.
+Consider using "model" instead of "modulo"
+In sorting.cpp at line 81
+
+Probably mistake in variable's "modulo" name.
+Consider using "model" instead of "modulo"
+In sorting.cpp at line 86
+
+Probably mistake in variable's "attempt" name.
+Consider using "accept" instead of "attempt"
+In sorting.cpp at line 88
+
+Probably mistake in variable's "test_sequence" name.
+Consider using "science" instead of "sequence"
+In sorting.cpp at line 89
+
+Probably mistake in variable's "correct_answer" name.
+Consider using "current" instead of "correct"
+In sorting.cpp at line 90
+
+===== Processing test_file.cpp =====
+Bad names found: 5
+Possible mistakes: 17
+
+Probably mistake in variable's "Privat" name.
+Consider using "private" instead of "Privat"
+In test_file.cpp at line 3
+
+Probably mistake in variable's "Grop" name.
+Consider using "drop" instead of "Grop"
+In test_file.cpp at line 7
+
+Probably mistake in variable's "kTrun" name.
+Consider using "run" instead of "Trun"
+In test_file.cpp at line 8
+
+Probably mistake in variable's "Prcle" name.
+Consider using "price" instead of "Prcle"
+In test_file.cpp at line 11
+
+Probably mistake in variable's "Thret" name.
+Consider using "threat" instead of "Thret"
+In test_file.cpp at line 13
+
+Probably mistake in variable's "foood_" name.
+Consider using "food" instead of "foood"
+In test_file.cpp at line 14
+
+Probably mistake in variable's "NotceHundreadArticles" name.
+Consider using "note" instead of "Notce"
+In test_file.cpp at line 17
+
+Probably mistake in variable's "NotceHundreadArticles" name.
+Consider using "hundred" instead of "Hundread"
+In test_file.cpp at line 17
+
+Probably mistake in variable's "NotceHundreadArticles" name.
+Consider using "article" instead of "Articles"
+In test_file.cpp at line 17
+
+Probably mistake in variable's "Maesure" name.
+Consider using "measure" instead of "Maesure"
+In test_file.cpp at line 21
+
+Entity's name "bad" does not meet the requirements (function)
+In test_file.cpp at line 24
+
+Entity's name "point" does not meet the requirements (type)
+In test_file.cpp at line 29
+
+Entity's name "point" does not meet the requirements (function)
+In test_file.cpp at line 30
+
+Entity's name "point" does not meet the requirements (function)
+In test_file.cpp at line 33
+
+Entity's name "value" does not meet the requirements (function)
+In test_file.cpp at line 36
+
+Probably mistake in variable's "cenutry" name.
+Consider using "century" instead of "cenutry"
+In test_file.cpp at line 42
+
+Probably mistake in variable's "sill" name.
+Consider using "bill" instead of "sill"
+In test_file.cpp at line 42
+
+Probably mistake in variable's "just_some_realy_llong_name_babe" name.
+Consider using "ready" instead of "realy"
+In test_file.cpp at line 44
+
+Probably mistake in variable's "just_some_realy_llong_name_babe" name.
+Consider using "along" instead of "llong"
+In test_file.cpp at line 44
+
+Probably mistake in variable's "just_some_realy_llong_name_babe" name.
+Consider using "baby" instead of "babe"
+In test_file.cpp at line 44
+
+Probably mistake in variable's "kGramarNazi" name.
+Consider using "game" instead of "Gramar"
+In test_file.cpp at line 46
+
+Probably mistake in variable's "kGramarNazi" name.
+Consider using "name" instead of "Nazi"
+In test_file.cpp at line 46
+

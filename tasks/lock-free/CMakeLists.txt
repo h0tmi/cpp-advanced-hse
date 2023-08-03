@@ -1,0 +1,6 @@
+add_subdirectory(futex)
+add_subdirectory(mpsc-stack)
+add_subdirectory(fast-queue)
+add_subdirectory(rw-spinlock)
+add_subdirectory(hazard-ptr)
+add_subdirectory(sync-map)

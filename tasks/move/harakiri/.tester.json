@@ -1,0 +1,6 @@
+{
+    "allow_change": ["harakiri.h", "harakiri.cpp"],
+    "tests": "test_harakiri",
+    "solutions": "private"
+}
+

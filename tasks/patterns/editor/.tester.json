@@ -1,0 +1,5 @@
+{
+  "allow_change": "editor.h",
+  "tests": "test_editor",
+  "solutions": "private"
+}

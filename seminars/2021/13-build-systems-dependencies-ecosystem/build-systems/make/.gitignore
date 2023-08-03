@@ -1,0 +1,7 @@
+### Make examples ###
+## Directories
+build
+
+## Files
+*.o
+thinker

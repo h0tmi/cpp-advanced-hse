@@ -1,0 +1,6 @@
+{
+    "allow_change": "immutable_vector.h",
+    "tests": "test_immutable_vector",
+    "solutions": "private",
+    "forbidden_regexp": []
+}

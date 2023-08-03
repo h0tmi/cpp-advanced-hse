@@ -1,0 +1,43 @@
+# Hello world in Ninja:
+rule hello_world
+  command = echo "Hello, world!"
+
+build hello_world: hello_world
+
+# Ninja supports variables, just like Make.
+# Mostly, to make debugging easier.
+cflags = -std=c++17 -Wall
+
+# Rules are shorthands for a command line.
+# They act like functions with two arguments:
+#   $in -- inputs
+#   $out -- outputs
+rule cxx
+  command = clang++ $cflags -c $in -o $out
+
+rule link_cxx
+  command = clang++ $in -o $out
+
+rule run
+  command = ./$in
+
+rule clean
+  command = rm -f *.o main
+
+# Build statements declare a relationship between input and output files.
+# Syntax:
+#
+# build outputs: rulename inputs
+
+build strings.o: cxx strings.cpp
+
+# Difficult case: `kv.cpp` includes `simple_any.hpp` which does not have a
+# separate TU. Headers with templates require special care.
+# Try to change `simple_any.hpp`. Ninja won't notice any difference.
+build kv.o: cxx kv.cpp
+build main.o: cxx main.cpp
+
+build main: link_cxx kv.o strings.o main.o
+build run_main: run main
+
+build clean: clean

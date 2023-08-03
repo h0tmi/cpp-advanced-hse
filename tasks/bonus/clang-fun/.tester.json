@@ -1,0 +1,8 @@
+{
+    "allow_change": ["check_names.cpp", "*.h"],
+    "tests": ["check-names"],
+    "test_script": "run_tests.sh",
+    "disable_asan": true,
+    "disable_tsan": true,
+    "linter": false
+}

@@ -1,0 +1,7 @@
+{
+    "allow_change": "any.h",
+    "tests": "test_any",
+    "solutions": "private",
+    "forbidden_regexp": ["void\\s*[*]"],
+    "forbidden_containers" : ["any"]
+}

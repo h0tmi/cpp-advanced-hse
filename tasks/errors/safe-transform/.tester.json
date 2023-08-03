@@ -1,0 +1,6 @@
+{
+    "allow_change": "transform.h",
+    "tests": "test_transform",
+    "solutions": "private",
+    "forbidden_regexp": []
+}

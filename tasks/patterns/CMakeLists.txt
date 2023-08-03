@@ -1,0 +1,5 @@
+add_subdirectory(pimpl)
+add_subdirectory(small-test-framework)
+add_subdirectory(editor)
+add_subdirectory(any)
+add_subdirectory(scala-vector)

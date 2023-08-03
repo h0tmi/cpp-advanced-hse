@@ -1,0 +1,3 @@
+add_catch(test_function_ref test.cpp)
+
+target_link_libraries(test_function_ref allocations_checker)

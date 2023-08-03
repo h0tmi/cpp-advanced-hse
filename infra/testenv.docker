@@ -1,0 +1,5 @@
+FROM cr.yandex/crpoem3mqq83iobvune7/hse-cxx-build:latest
+
+COPY . /opt/shad
+
+RUN rm -rf /opt/shad/private

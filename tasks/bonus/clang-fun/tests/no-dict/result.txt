@@ -1,0 +1,259 @@
+===== Processing fun.cpp =====
+Bad names found: 29
+Possible mistakes: 0
+
+Entity's name "Static_Method" does not meet the requirements (function)
+In fun.cpp at line 13
+
+Entity's name "bad_bield" does not meet the requirements (field)
+In fun.cpp at line 18
+
+Entity's name "reallyBad_" does not meet the requirements (field)
+In fun.cpp at line 19
+
+Entity's name "kBad_" does not meet the requirements (const)
+In fun.cpp at line 22
+
+Entity's name "bad_val" does not meet the requirements (field)
+In fun.cpp at line 23
+
+Entity's name "privateMethod" does not meet the requirements (function)
+In fun.cpp at line 25
+
+Entity's name "bad_val" does not meet the requirements (field)
+In fun.cpp at line 29
+
+Entity's name "JustAStruct" does not meet the requirements (type)
+In fun.cpp at line 31
+
+Entity's name "bad_field_" does not meet the requirements (variable)
+In fun.cpp at line 33
+
+Entity's name "var_" does not meet the requirements (variable)
+In fun.cpp at line 38
+
+Entity's name "size" does not meet the requirements (function)
+In fun.cpp at line 40
+
+Entity's name "var_" does not meet the requirements (variable)
+In fun.cpp at line 45
+
+Entity's name "BadShortAB" does not meet the requirements (function)
+In fun.cpp at line 51
+
+Entity's name "dummy1" does not meet the requirements (variable)
+In fun.cpp at line 52
+
+Entity's name "fail" does not meet the requirements (function)
+In fun.cpp at line 56
+
+Entity's name "BIGNAME" does not meet the requirements (function)
+In fun.cpp at line 60
+
+Entity's name "F" does not meet the requirements (variable)
+In fun.cpp at line 60
+
+Entity's name "shitHappens" does not meet the requirements (type)
+In fun.cpp at line 65
+
+Entity's name "hi_" does not meet the requirements (variable)
+In fun.cpp at line 67
+
+Entity's name "O" does not meet the requirements (function)
+In fun.cpp at line 71
+
+Entity's name "NotOK" does not meet the requirements (type)
+In fun.cpp at line 79
+
+Entity's name "just__few_words" does not meet the requirements (variable)
+In fun.cpp at line 86
+
+Entity's name "_hello_world" does not meet the requirements (variable)
+In fun.cpp at line 87
+
+Entity's name "_" does not meet the requirements (variable)
+In fun.cpp at line 89
+
+Entity's name "Wrong" does not meet the requirements (variable)
+In fun.cpp at line 90
+
+Entity's name "STOP_RIGHT_THERE_CRIMINAL_SCUM" does not meet the requirements (variable)
+In fun.cpp at line 92
+
+Entity's name "hi_there_" does not meet the requirements (variable)
+In fun.cpp at line 98
+
+Entity's name "myunion" does not meet the requirements (type)
+In fun.cpp at line 100
+
+Entity's name "first_chair_" does not meet the requirements (variable)
+In fun.cpp at line 101
+
+===== Processing perm.cpp =====
+Bad names found: 26
+Possible mistakes: 0
+
+Entity's name "size" does not meet the requirements (const)
+In perm.cpp at line 27
+
+Entity's name "is_empty" does not meet the requirements (function)
+In perm.cpp at line 69
+
+Entity's name "begin" does not meet the requirements (function)
+In perm.cpp at line 116
+
+Entity's name "end" does not meet the requirements (function)
+In perm.cpp at line 118
+
+Entity's name "index" does not meet the requirements (function)
+In perm.cpp at line 122
+
+Entity's name "totalNumber" does not meet the requirements (function)
+In perm.cpp at line 124
+
+Entity's name "first_block_index" does not meet the requirements (const)
+In perm.cpp at line 135
+
+Entity's name "last_block_index" does not meet the requirements (const)
+In perm.cpp at line 136
+
+Entity's name "column_begin" does not meet the requirements (function)
+In perm.cpp at line 171
+
+Entity's name "column_end" does not meet the requirements (function)
+In perm.cpp at line 175
+
+Entity's name "width" does not meet the requirements (function)
+In perm.cpp at line 179
+
+Entity's name "height" does not meet the requirements (function)
+In perm.cpp at line 181
+
+Entity's name "range_decomposition" does not meet the requirements (const)
+In perm.cpp at line 222
+
+Entity's name "image_decomposition" does not meet the requirements (const)
+In perm.cpp at line 224
+
+Entity's name "image" does not meet the requirements (const)
+In perm.cpp at line 275
+
+Entity's name "n_queries" does not meet the requirements (const)
+In perm.cpp at line 329
+
+Entity's name "size_" does not meet the requirements (variable)
+In perm.cpp at line 331
+
+Entity's name "image" does not meet the requirements (const)
+In perm.cpp at line 383
+
+Entity's name "count" does not meet the requirements (const)
+In perm.cpp at line 417
+
+Entity's name "correct_count" does not meet the requirements (const)
+In perm.cpp at line 419
+
+Entity's name "size" does not meet the requirements (function)
+In perm.cpp at line 432
+
+Entity's name "size" does not meet the requirements (const)
+In perm.cpp at line 470
+
+Entity's name "permutation" does not meet the requirements (const)
+In perm.cpp at line 494
+
+Entity's name "analyzer" does not meet the requirements (const)
+In perm.cpp at line 495
+
+Entity's name "size" does not meet the requirements (const)
+In perm.cpp at line 497
+
+Entity's name "range" does not meet the requirements (const)
+In perm.cpp at line 500
+
+===== Processing segment.cpp =====
+Bad names found: 26
+Possible mistakes: 0
+
+Entity's name "size" does not meet the requirements (const)
+In segment.cpp at line 26
+
+Entity's name "is_empty" does not meet the requirements (function)
+In segment.cpp at line 45
+
+Entity's name "num_points" does not meet the requirements (function)
+In segment.cpp at line 115
+
+Entity's name "part_index" does not meet the requirements (function)
+In segment.cpp at line 117
+
+Entity's name "ImmutableSegmentTree2DBuilder" does not meet the requirements (type)
+In segment.cpp at line 128
+
+Entity's name "ImmutableSegmentTree2D" does not meet the requirements (type)
+In segment.cpp at line 133
+
+Entity's name "root_range" does not meet the requirements (const)
+In segment.cpp at line 144
+
+Entity's name "query_range" does not meet the requirements (const)
+In segment.cpp at line 145
+
+Entity's name "ImmutableSegmentTree2D" does not meet the requirements (function)
+In segment.cpp at line 152
+
+Entity's name "ImmutableSegmentTree2D" does not meet the requirements (function)
+In segment.cpp at line 154
+
+Entity's name "left_child_index" does not meet the requirements (function)
+In segment.cpp at line 163
+
+Entity's name "right_child_index" does not meet the requirements (function)
+In segment.cpp at line 165
+
+Entity's name "middle" does not meet the requirements (const)
+In segment.cpp at line 176
+
+Entity's name "ImmutableSegmentTree2DBuilder" does not meet the requirements (type)
+In segment.cpp at line 195
+
+Entity's name "size" does not meet the requirements (const)
+In segment.cpp at line 212
+
+Entity's name "BuildImmutableSegmentTree2D" does not meet the requirements (function)
+In segment.cpp at line 234
+
+Entity's name "n_queries" does not meet the requirements (const)
+In segment.cpp at line 304
+
+Entity's name "image" does not meet the requirements (const)
+In segment.cpp at line 358
+
+Entity's name "count" does not meet the requirements (const)
+In segment.cpp at line 393
+
+Entity's name "correct_count" does not meet the requirements (const)
+In segment.cpp at line 395
+
+Entity's name "size" does not meet the requirements (function)
+In segment.cpp at line 408
+
+Entity's name "size" does not meet the requirements (const)
+In segment.cpp at line 446
+
+Entity's name "permutation" does not meet the requirements (const)
+In segment.cpp at line 470
+
+Entity's name "analyzer" does not meet the requirements (const)
+In segment.cpp at line 471
+
+Entity's name "size" does not meet the requirements (const)
+In segment.cpp at line 473
+
+Entity's name "range" does not meet the requirements (const)
+In segment.cpp at line 476
+
+===== Processing check_names.cpp =====
+Bad names found: 0
+Possible mistakes: 0
+

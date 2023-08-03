@@ -1,0 +1,11 @@
+{
+    "allow_change": ["generator.h"],
+    "tests": ["test_generator"],
+    "benchmarks": [],
+    "forbidden_regexp": [
+        "#include\\s*<.*coroutine.*>",
+        "#include\\s*<.*fiber.*>"
+    ],
+    "scorer": [],
+    "linter": false
+}

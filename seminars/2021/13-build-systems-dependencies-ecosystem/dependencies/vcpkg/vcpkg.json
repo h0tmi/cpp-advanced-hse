@@ -1,0 +1,9 @@
+{
+  "name": "vcpkg-deps",
+  "version-string": "0.0.1",
+  "dependencies": [
+    "imgui",
+    "glfw3",
+    "glew"
+  ]
+}

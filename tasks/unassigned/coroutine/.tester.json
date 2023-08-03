@@ -1,0 +1,11 @@
+{
+    "allow_change": ["coroutine.h"],
+    "tests": ["test_coroutine"],
+    "benchmarks": [],
+    "forbidden_regexp": [
+        "#include\\s*<.*coroutine.*>",
+        "#include\\s*<.*fiber.*>"
+    ],
+    "scorer": [],
+    "linter": false
+}

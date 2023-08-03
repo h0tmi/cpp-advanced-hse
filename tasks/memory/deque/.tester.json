@@ -1,0 +1,22 @@
+{
+  "allow_change": "deque.h",
+  "tests": "test_deque",
+  "solutions": "private",
+  "forbidden_containers" : [
+    "unordered_multiset",
+    "unordered_multimap",
+    "queue",
+    "prioriry_queue",
+    "stack",
+    "map",
+    "multimap",
+    "set",
+    "multiset",
+    "list",
+    "unordered_set",
+    "unordered_map",
+    "vector",
+    "deque"
+  ],
+  "disable_tsan": true
+}

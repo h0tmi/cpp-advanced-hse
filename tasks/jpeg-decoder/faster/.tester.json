@@ -1,0 +1,10 @@
+{
+  "allow_change": [
+    "*.h",
+    "*.cpp",
+    "sources.cmake"
+  ],
+  "tests": "test_decoder_faster",
+  "solutions": "private",
+  "disable_tsan": true
+}

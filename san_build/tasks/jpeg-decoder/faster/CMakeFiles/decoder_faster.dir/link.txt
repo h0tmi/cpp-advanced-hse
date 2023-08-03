@@ -1,0 +1,2 @@
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ar qc libdecoder_faster.a CMakeFiles/decoder_faster.dir/huffman.cpp.o CMakeFiles/decoder_faster.dir/fft.cpp.o CMakeFiles/decoder_faster.dir/decoder.cpp.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ranlib libdecoder_faster.a

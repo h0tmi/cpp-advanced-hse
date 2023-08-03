@@ -1,0 +1,20 @@
+{
+    "allow_change": [
+        "timerqueue.h"
+    ],
+    "tests": [
+        "test_timerqueue"
+    ],
+    "extra_test_options": [
+        "--gtest_repeat=10",
+        "--gtest_shuffle"
+    ],
+    "forbidden_regexp": [
+        "sleep",
+        "yield",
+        "seconds",
+        "milliseconds",
+        "minutes",
+        "thread"
+    ]
+}

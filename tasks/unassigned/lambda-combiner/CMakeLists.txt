@@ -1,0 +1,1 @@
+add_catch(test_lambda_combiner test.cpp lambda_combiner.h)

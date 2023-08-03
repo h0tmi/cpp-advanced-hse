@@ -1,0 +1,7 @@
+{
+    "type": "ctf",
+    "benchmark": true,
+    "review": true,
+    "linter": false,
+    "allow_change": ["solution/*"]
+}

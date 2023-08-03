@@ -1,0 +1,12 @@
+export module foo;
+
+#include <string>
+
+export {
+    template <typename T>
+    struct Foo {
+        std::string Hello() const {
+            return std::string{"Hello, "} + typeid(T).name() + "!";
+        }
+    };
+}

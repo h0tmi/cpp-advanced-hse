@@ -1,0 +1,13 @@
+module;
+
+#include <iostream>
+
+export module hello;
+
+export namespace hello {
+
+inline void SayHello() {
+    std::cout << "Hello, world!" << std::endl;
+}
+
+}

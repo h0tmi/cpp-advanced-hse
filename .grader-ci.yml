@@ -1,0 +1,10 @@
+grade:
+  image: cr.yandex/crpoem3mqq83iobvune7/hse-cxx-testenv:latest
+  only:
+    - /^submits/.*$/
+  script:
+    - cd /opt/shad && PYTHONPATH=grader python3 -m grader
+  artifacts:
+    when: on_failure
+    paths:
+      - artifacts/

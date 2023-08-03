@@ -1,0 +1,5 @@
+add_subdirectory(timerqueue)
+add_subdirectory(semaphore)
+add_subdirectory(rw-lock)
+add_subdirectory(buffered-channel)
+add_subdirectory(unbuffered-channel)

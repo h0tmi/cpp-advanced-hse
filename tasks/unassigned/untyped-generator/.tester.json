@@ -1,0 +1,10 @@
+{
+    "allow_change": ["untyped_generator.h"],
+    "tests": ["test_untyped_generator"],
+    "benchmarks": [],
+    "forbidden_regexp": [
+        "#include\\s*<.*coroutine.*>",
+        "#include\\s*<.*fiber.*>"
+    ],
+    "scorer": []
+}

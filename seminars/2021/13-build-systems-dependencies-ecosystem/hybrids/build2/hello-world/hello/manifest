@@ -1,0 +1,12 @@
+: 1
+name: hello
+version: 0.1.0-a.0.z
+summary: hello C++ executable
+license: other: proprietary ; Not free/open source.
+description-file: README.md
+url: https://example.org/hello
+email: email@example.com
+#build-error-email: email@example.com
+depends: * build2 >= 0.14.0
+depends: * bpkg >= 0.14.0
+#depends: libhello ^1.0.0

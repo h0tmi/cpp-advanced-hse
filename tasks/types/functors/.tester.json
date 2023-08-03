@@ -1,0 +1,5 @@
+{
+    "allow_change": "functors.h",
+    "tests": "test_functors",
+    "solutions": "private"
+}

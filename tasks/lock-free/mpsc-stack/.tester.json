@@ -1,0 +1,12 @@
+{
+    "allow_change": [
+        "mpsc_stack.h"
+    ],
+    "tests": [
+        "test_mpsc_stack"
+    ],
+    "extra_test_options": [
+        "--gtest_repeat=10",
+        "--gtest_shuffle"
+    ]
+}

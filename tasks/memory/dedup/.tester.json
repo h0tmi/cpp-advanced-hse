@@ -1,0 +1,7 @@
+{
+    "allow_change": "dedup.h",
+    "tests": "test_dedup",
+    "solutions": "private",
+    "forbidden_regexp": [],
+    "disable_tsan": true
+}
