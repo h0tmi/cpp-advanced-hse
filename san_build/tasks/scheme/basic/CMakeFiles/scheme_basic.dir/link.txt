@@ -1,2 +1,0 @@
-/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ar qc libscheme_basic.a CMakeFiles/scheme_basic.dir/tokenizer.cpp.o CMakeFiles/scheme_basic.dir/parser.cpp.o CMakeFiles/scheme_basic.dir/scheme.cpp.o
-/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ranlib libscheme_basic.a
