@@ -1,0 +1,4 @@
+/build/**
+/.cache
+/san_build
+/san_build/CMakeFiles*
