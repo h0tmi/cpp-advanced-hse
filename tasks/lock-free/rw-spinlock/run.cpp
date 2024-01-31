@@ -43,8 +43,8 @@ void ReadsWrites(benchmark::State& state) {
     }
 }
 
-BENCHMARK(Reads)->ThreadRange(1, 8)->UseRealTime();
-BENCHMARK(Writes)->ThreadRange(1, 8)->UseRealTime();
-BENCHMARK(ReadsWrites)->ThreadRange(1, 8)->UseRealTime();
+BENCHMARK(Reads)->ThreadRange(1, 8)->MeasureProcessCPUTime()->UseRealTime();
+BENCHMARK(Writes)->ThreadRange(1, 8)->MeasureProcessCPUTime()->UseRealTime();
+BENCHMARK(ReadsWrites)->ThreadRange(1, 8)->MeasureProcessCPUTime()->UseRealTime();
 
 BENCHMARK_MAIN();

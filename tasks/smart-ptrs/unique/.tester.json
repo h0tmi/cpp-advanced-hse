@@ -18,5 +18,8 @@
     "make_unique_for_overwrite",
     "make_shared",
     "make_shared_for_overwrite"
+  ],
+  "forbidden_regexp": [
+    "no_unique_address"
   ]
 }

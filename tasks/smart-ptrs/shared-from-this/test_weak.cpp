@@ -5,6 +5,8 @@
 
 #include <catch.hpp>
 
+#include "allocations_checker.h"
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
 TEST_CASE("Empty weak") {
@@ -16,6 +18,16 @@ TEST_CASE("Empty weak") {
 
     auto shared = b.Lock();
     REQUIRE(shared.Get() == nullptr);
+}
+
+TEST_CASE("No unexpected allocations") {
+    EXPECT_ZERO_ALLOCATIONS(WeakPtr<int>{});
+
+    auto sp = MakeShared<int>(42);
+    EXPECT_ZERO_ALLOCATIONS(WeakPtr<int>{sp});
+
+    SharedPtr<int> sp2(new int(42));
+    EXPECT_ZERO_ALLOCATIONS(WeakPtr<int>{sp2});
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////

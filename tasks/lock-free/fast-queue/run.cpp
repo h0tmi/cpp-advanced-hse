@@ -73,8 +73,8 @@ void CorrectnessEnqueueDequeue(benchmark::State& state) {
     }
 }
 
-BENCHMARK(StressEnqueue)->ThreadRange(1, 8)->UseRealTime();
-BENCHMARK(StressEnqueueDequeue)->ThreadRange(1, 8)->UseRealTime();
-BENCHMARK(CorrectnessEnqueueDequeue)->ThreadRange(1, 8)->UseRealTime();
+BENCHMARK(StressEnqueue)->ThreadRange(1, 8)->MeasureProcessCPUTime()->UseRealTime();
+BENCHMARK(StressEnqueueDequeue)->ThreadRange(1, 8)->MeasureProcessCPUTime()->UseRealTime();
+BENCHMARK(CorrectnessEnqueueDequeue)->ThreadRange(1, 8)->MeasureProcessCPUTime()->UseRealTime();
 
 BENCHMARK_MAIN();

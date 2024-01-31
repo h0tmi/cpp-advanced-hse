@@ -8,6 +8,7 @@
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
+
 TEST_CASE("Empty") {
     SECTION("Empty state") {
         SharedPtr<int> a, b;
@@ -27,7 +28,7 @@ TEST_CASE("Empty") {
     }
 }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////
 
 TEST_CASE("Copy/move") {
     SharedPtr<std::string> a(new std::string("aba"));
@@ -48,6 +49,7 @@ TEST_CASE("Copy/move") {
         REQUIRE(*c == "caba");
         REQUIRE(*d == "aba");
         b.Reset(new std::string("test"));
+
         REQUIRE(*c == "caba");
     }
     REQUIRE(*b == "test");

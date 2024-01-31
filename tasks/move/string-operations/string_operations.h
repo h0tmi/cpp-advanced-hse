@@ -1,45 +1,108 @@
 #pragma once
 
-/*
-`bool StartsWith(STR string, STR text)` — проверяет, что строка `string` начинается с `text`.
+#include <cstring>
+#include <string>
+#include <string_view>
+#include <type_traits>
+#include <vector>
 
-`bool EndsWith(STR string, STR text)` — проверяет, что строка `string` оканчивается на `text`.
+bool StartsWith(std::string_view string, std::string_view text);
 
-`STR StripPrefix(STR string, STR prefix)` — возвращает `string` с убранным `prefix`,
-если `string` не начинается на `prefix`, возвращает `string`.
+bool EndsWith(std::string_view string, std::string_view text);
 
-`STR StripSuffix(STR string, STR suffix)` — тоже самое, но с суффиксом.
+std::string_view StripPrefix(std::string_view string, std::string_view prefix);
 
-`STR ClippedSubstr(STR s, size_t pos, size_t n = STR::npos)` — тоже самое, что и `s.substr(pos, n)`,
-но если `n` больше `s.size()`, то возвращается `s`.
+std::string_view StripSuffix(std::string_view string, std::string_view suffix);
 
-`STR StripAsciiWhitespace(STR)` — `strip` строки, удаляем все символы с обоих концов
-вида [isspace](https://en.cppreference.com/w/cpp/string/byte/isspace).
+std::string_view ClippedSubstr(std::string_view s, size_t pos, size_t n = std::string_view::npos);
 
-`std::vector<STR> StrSplit(STR text, STR delim)` — делаем `split` строки по `delim`. Подумайте,
-прежде чем копипастить из уже имеющейся задачи. Обойдитесь одной аллокацией памяти.
+std::string_view StripAsciiWhitespace(std::string_view s);
 
-`STR ReadN(STR filename, int n)` — открывает файл и читает `n` байт из filename. Используйте Linux
-Syscalls `open`, `read`, `close`. Если открыть или прочитать файл нельзя, возвращает пустую строчку.
+std::vector<std::string_view> StrSplit(std::string_view text, std::string_view delim);
 
-`STR AddSlash(STR path)` — добавляет к `path` файловой системы символ `/`, если его не было.
+std::string ReadN(const std::string& filename, size_t n);
 
-`STR RemoveSlash(STR path)` — убирает `/` из `path`, если это не сам путь `/` и путь заканчивается
-на `/`.
+std::string AddSlash(std::string_view path);
 
-`STR Dirname(STR path)` — известно, что `path` — корректный путь до файла без слеша на конце,
-верните папку, в которой этот файл лежит без слеша на конце, если это не корень.
+std::string_view RemoveSlash(std::string_view path);
 
-`STR Basename(STR path)` — известно, что `path` — корректный путь до файла, верните его название.
+std::string_view Dirname(std::string_view path);
 
-`STR CollapseSlashes(STR path)` — известно, что `path` — корректный путь, но `/` могут повторяться,
-надо убрать все повторения.
+std::string_view Basename(std::string_view path);
 
-`STR StrJoin(const std::vector<STR>& strings, STR delimiter)` — склеить все строки в одну через
-`delimiter`. Обойдитесь одной аллокацией памяти.
+std::string CollapseSlashes(std::string_view path);
 
-`STR StrCat(Args...)` — склеить все аргументы в один в их строковом представлении.
-Должны поддерживаться числа (`int, long, long long` и их `unsigned` версии), также все строковые
-типы (`std::string, std::string_view, const char*`). Аргументов в `StrCat` не больше пяти.
-Придумайте как это сделать за одну аллокацию памяти.
-*/
+std::string StrJoin(const std::vector<std::string_view>& strings, std::string_view delimiter);
+
+template <typename T, typename... Args>
+void CoolSizer(size_t& pos, T& cur, Args&... args) {
+    if constexpr (std::is_arithmetic_v<T>) {
+
+        T cpm = cur;
+        if (cpm < 0) {
+            ++pos;
+        }
+
+        do {
+            ++pos;
+            cpm /= 10;
+        } while (cpm);
+    } else {
+        if constexpr (std::is_same<std::decay_t<T>, std::string>::value ||
+                      std::is_same<std::decay_t<T>, std::string_view>::value) {
+            pos += cur.size();
+        } else {
+            pos += std::strlen(cur);
+        }
+    }
+}
+
+template <typename T, typename... Args>
+void CoolString(std::string& s, T& cur, Args&... args) {
+    if constexpr (std::is_arithmetic_v<T>) {
+        size_t num_len = 1;
+
+        if (cur < 0) {
+            int64_t divider = 1;
+            s.push_back('-');
+            while (cur / divider < -9LL) {
+                divider *= 10;
+                ++num_len;
+            }
+            for (size_t i = 0; i < num_len; ++i) {
+                s.push_back(char('0' + cur / divider * -1));
+                cur %= divider;
+                divider /= 10;
+            }
+        } else {
+            size_t divider = 1;
+            while (cur / divider > 9LL) {
+                divider *= 10LL;
+                ++num_len;
+            }
+            for (size_t i = 0; i < num_len; ++i) {
+                s.push_back(char('0' + cur / divider));
+                cur %= divider;
+                divider /= 10;
+            }
+        }
+
+    } else {
+        if constexpr (std::is_same<std::decay_t<T>, std::string>::value ||
+                      std::is_same<std::decay_t<T>, std::string_view>::value) {
+            s += cur;
+        } else {
+            s += cur;
+        }
+    }
+}
+
+template <typename... Args>
+std::string StrCat(Args&&... args) {
+    size_t pos = 0;
+    (CoolSizer(pos, args), ...);
+    std::string ans;
+    ans.reserve(pos);
+    (CoolString(ans, args), ...);
+    return ans;
+};

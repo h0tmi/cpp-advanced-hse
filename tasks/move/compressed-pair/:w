@@ -1,0 +1,110 @@
+#pragma once
+
+#include <ios>
+#include <type_traits>
+#include <memory>
+
+template <typename F, typename S,
+          bool = std::is_empty_v<F> & !std::is_final_v<F> & !std::is_base_of_v<S, F> &
+                 !std::is_base_of_v<F, S>,
+          bool = std::is_empty_v<S> & !std::is_final_v<S> & !std::is_base_of_v<F, S> &
+                 !std::is_base_of_v<S, F>>
+class CompressedPair {};
+
+template <typename F, typename S>
+class CompressedPair<F, S, false, false> {
+public:
+    CompressedPair() = default;
+    CompressedPair(const F& first, const S& second) : first_(first), second_(second) {
+    }
+    CompressedPair(const F&& first, const S&& second) : first_(std::move(first)), second_(std::move(second)) {
+    }
+    CompressedPair& operator=(const CompressedPair& other) {
+        first_ = other.first_;
+        second_ = other.second_;
+        return *this;
+    }
+    CompressedPair& operator=(const CompressedPair&& other) {
+        first_ = std::move(other.first_);
+        second_ = std::move(other.second_);
+        return *this;
+    }
+    ~CompressedPair() = default;
+
+    F& GetFirst() const {
+        return first_;
+    }
+
+    S& GetSecond() const {
+        return second_;
+    }
+
+private:
+    F first_;
+    S second_;
+};
+
+template <typename F, typename S>
+class CompressedPair<F, S, false, true> : private S {
+public:
+    CompressedPair(const F& first, [[maybe_unused]] const S& second) : first_(first) {};
+    CompressedPair() = default;
+    CompressedPair(const F& first, [[maybe_unused]] const S& second) : first_(first) {
+    }
+    CompressedPair(const F&& first, const S&& second) : first_(std::move(first)), second_(std::move(second)) {
+    }
+    CompressedPair& operator=(const CompressedPair& other) {
+        first_ = other.first_;
+        second_ = other.second_;
+        return *this;
+    }
+    CompressedPair& operator=(const CompressedPair&& other) {
+        first_ = std::move(other.first_);
+        second_ = std::move(other.second_);
+        return *this;
+    }
+    ~CompressedPair() = default;
+
+
+    F& GetFirst() const {
+        return first_;
+    }
+
+    S& GetSecond() const {
+        return *this;
+    }
+
+private:
+    F first_;
+};
+
+template <typename F, typename S>
+class CompressedPair<F, S, true, false> : private F {
+public:
+    CompressedPair([[maybe_unused]] const F& first, const S& second) : second_(second) {};
+
+    F& GetFirst() const {
+        return *this;
+    }
+
+    S& GetSecond() const {
+        return second_; 
+    }
+
+private:
+    S second_;
+};
+
+template <typename F, typename S>
+class CompressedPair<F, S, true, true> : private F, private S {
+public:
+    CompressedPair([[maybe_unused]] const F& first, [[maybe_unused]] const S& second) {};
+
+    F& GetFirst() const {
+        return *this;
+    }
+
+    S& GetSecond() const {
+        return *this; 
+    }
+};

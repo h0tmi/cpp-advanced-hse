@@ -38,9 +38,9 @@ TEST_CASE_METHOD(SchemeTest, "LambdaClosure") {
     // (define range (lambda (x) (lambda () (set! x (+ x 1)) x)))
 
     ExpectNoError("(define my-range (range 10))");
+    ExpectEq("(my-range)", "11");
 
     WITH_ALLOCATION_DIFFERENCE_CHECK(0, {
-        ExpectEq("(my-range)", "11");
         ExpectEq("(my-range)", "12");
         ExpectEq("(my-range)", "13");
     });
@@ -99,9 +99,9 @@ TEST_CASE_METHOD(SchemeTest, "LambdasShareContext") {
         )
     )EOF");
     ExpectNoError("(define my-foo (foo 15))");
+    ExpectEq("((cdr my-foo))", "30");
 
     WITH_ALLOCATION_DIFFERENCE_CHECK(0, {
-        ExpectEq("((cdr my-foo))", "30");
         ExpectEq("((car my-foo))", "31");
         ExpectEq("((car my-foo))", "32");
         ExpectEq("((cdr my-foo))", "64");
@@ -117,8 +117,13 @@ TEST_CASE_METHOD(SchemeTest, "CyclicLocalContextDependencies") {
     )EOF");
     ExpectNoError("(define my-foo (foo 20))");
     ExpectNoError("(define foo 1543)");
+    ExpectEq("(my-foo)", "42");
 
-    WITH_ALLOCATION_DIFFERENCE_CHECK(0, { ExpectEq("(my-foo)", "42"); });
+    WITH_ALLOCATION_DIFFERENCE_CHECK(0, { 
+        ExpectEq("(my-foo)", "86");
+        ExpectEq("(my-foo)", "174");
+        ExpectEq("(my-foo)", "350"); 
+    });
 }
 
 TEST_CASE_METHOD(SchemeTest, "Deep recursion") {

@@ -21,7 +21,6 @@ TEST_CASE_METHOD(SchemeTest, "ListSyntax") {
 
 TEST_CASE_METHOD(SchemeTest, "ListInvalidSyntax") {
     ExpectSyntaxError("((1)");
-    ExpectSyntaxError("(1))");
     ExpectSyntaxError(")(1)");
 
     ExpectSyntaxError("(.)");

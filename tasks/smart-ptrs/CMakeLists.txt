@@ -11,7 +11,8 @@ add_catch(test_shared
 
 add_catch(test_weak
     weak/test.cpp
-    weak/test_shared.cpp)
+    weak/test_shared.cpp
+    weak/test_odr.cpp)
 
 add_catch(test_shared_from_this
     shared-from-this/test.cpp

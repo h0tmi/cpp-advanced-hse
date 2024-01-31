@@ -22,6 +22,11 @@
         "unordered_set",
         "unordered_multimap",
         "unordered_multiset",
-        "shared_mutex"
+        "shared_mutex",
+        "shared_timed_mutex"
+    ],
+    "forbidden_regexp": [
+        "shared_mutex",
+        "shared_timed_mutex"
     ]
 }

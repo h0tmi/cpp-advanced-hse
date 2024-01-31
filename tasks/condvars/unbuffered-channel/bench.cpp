@@ -68,6 +68,7 @@ const int kHalf = std::max(1, kThreads / 2);
 const int kAnotherHalf = std::max(1, kThreads - kHalf);
 
 BENCHMARK(Run)
+    ->MeasureProcessCPUTime()
     ->UseRealTime()
     ->Unit(benchmark::kMillisecond)
     ->Args({2, std::max(1, kThreads - 2)})

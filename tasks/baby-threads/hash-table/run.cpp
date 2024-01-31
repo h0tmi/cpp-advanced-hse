@@ -86,9 +86,9 @@ void Deletions(benchmark::State& state) {
     }
 }
 
-BENCHMARK(RandomInsertions)->Threads(4)->Threads(8)->UseRealTime();
-BENCHMARK(SpecialInsertions)->Threads(4)->Threads(8)->UseRealTime();
-BENCHMARK(ManySearches)->Threads(4)->Threads(8)->UseRealTime();
-BENCHMARK(Deletions)->Threads(4)->Threads(8)->UseRealTime();
+BENCHMARK(RandomInsertions)->Threads(4)->Threads(8)->MeasureProcessCPUTime()->UseRealTime();
+BENCHMARK(SpecialInsertions)->Threads(4)->Threads(8)->MeasureProcessCPUTime()->UseRealTime();
+BENCHMARK(ManySearches)->Threads(4)->Threads(8)->MeasureProcessCPUTime()->UseRealTime();
+BENCHMARK(Deletions)->Threads(4)->Threads(8)->MeasureProcessCPUTime()->UseRealTime();
 
 BENCHMARK_MAIN();

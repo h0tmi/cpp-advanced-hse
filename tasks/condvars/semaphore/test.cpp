@@ -14,21 +14,26 @@ void RunTest(int threads_count, int concurrency_level) {
     }
 
     int time = 0;
+    std::atomic<int> expected_value = 0;
     std::vector<std::thread> threads;
     threads.reserve(threads_count);
     for (int i = 0; i < threads_count; ++i) {
-        threads.emplace_back([&time, &semaphore, i]() {
-            semaphore.Enter([&time, i](int& value) {
+        threads.emplace_back([&time, &semaphore, i, &expected_value]() {
+            semaphore.Enter([&time, i, &expected_value](int& value) {
                 auto cur_time = time++;
                 ASSERT_EQ(i, cur_time);
+                ASSERT_EQ(expected_value.load(), value);
                 --value;
+                expected_value.fetch_sub(1);
             });
             semaphore.Leave();
+            expected_value.fetch_add(1);
         });
         std::this_thread::sleep_for(std::chrono::duration<int, std::milli>(200));
     }
 
     for (int i = 0; i < concurrency_level; ++i) {
+        expected_value.fetch_add(1);
         semaphore.Leave();
         std::this_thread::sleep_for(std::chrono::duration<int, std::milli>(200));
     }

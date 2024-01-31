@@ -90,6 +90,10 @@ TEST_CASE("FunctionPointer") {
     FunctionRef<void(int)> ref2{AddToGlobalSum};
     Iterate(0, 10, ref2);
     REQUIRE(global_sum == 135);
+
+    FunctionRef<void(int)> ref3 = &AddToGlobalSum;
+    Iterate(0, 10, ref3);
+    REQUIRE(global_sum == 180);
 }
 
 TEST_CASE("Reassign") {
@@ -127,4 +131,39 @@ TEST_CASE("ForwardArguments") {
     };
     ref(std::make_unique<int>(5), x);
     REQUIRE(x == 'a');
+}
+
+auto MakeLambda(int x) {
+    return [x] {
+        return x;
+    };
+}
+
+TEST_CASE("AntiStatic-1") {
+    auto l1 = MakeLambda(1);
+    FunctionRef<int()> r1(l1);
+    REQUIRE(r1() == 1);
+
+    auto l2 = MakeLambda(2);
+    FunctionRef<int()> r2(l2);
+    REQUIRE(r2() == 2);
+
+    REQUIRE(r1() == 1);
+    REQUIRE(r2() == 2);
+}
+
+template<int N>
+int F() {
+    return N;
+}
+
+TEST_CASE("AntiStatic-2") {
+    FunctionRef<int()> r1(F<1>);
+    REQUIRE(r1() == 1);
+
+    FunctionRef<int()> r2(F<2>);
+    REQUIRE(r2() == 2);
+
+    REQUIRE(r1() == 1);
+    REQUIRE(r2() == 2);
 }

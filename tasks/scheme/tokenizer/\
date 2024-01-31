@@ -1,0 +1,111 @@
+#pragma once
+
+#include <array>
+#include <cctype>
+#include <complex>
+#include <cstdio>
+#include <iostream>
+#include <iterator>
+#include <string>
+#include <variant>
+#include <optional>
+#include <type_traits>
+#include <istream>
+
+struct SymbolToken {
+    std::string name;
+
+    bool operator==(const SymbolToken& other) const {
+        return name == other.name;
+    }
+};
+
+struct QuoteToken {
+    bool operator==(const QuoteToken&) const { return true; }
+};
+
+struct DotToken {
+    bool operator==(const DotToken&) const { return true; }
+};
+
+enum class BracketToken { OPEN, CLOSE };
+
+struct ConstantToken {
+    int value;
+
+    bool operator==(const ConstantToken& other) const {
+        return value == other.value;
+    }
+};
+struct EndToken {
+    bool operator==(const EndToken&) const { return true; }
+};
+
+using Token =
+    std::variant<ConstantToken, BracketToken, SymbolToken, QuoteToken, DotToken, EndToken>;
+
+class Tokenizer {
+public:
+    Tokenizer(std::istream* in) : stream_(in) {
+        Next();
+    }
+
+    bool IsEnd() {
+        return std::holds_alternative<EndToken>(token_);
+    }
+
+    void Next() {
+        while (stream_->peek() == ' ') {
+            stream_->get();
+        }
+        char ind_ch = stream_->get();
+        if (ind_ch == '(') {
+            std::cout << "OPEN\n";
+            token_ = BracketToken::OPEN;
+        } else if (ind_ch == ')') {
+            std::cout << "CLOSE\n";
+            token_ = BracketToken::CLOSE;
+        } else if (ind_ch == '\'') {
+            token_ = QuoteToken();
+        } else if (ind_ch == '.') {
+            token_ = DotToken();
+        } else if (ind_ch != EOF) {
+            stream_->putback(ind_ch);
+            std::array<char, 80> chars;
+            chars.fill('\0');
+            stream_->getline(&chars[0], 4, ' ');
+            if (((chars[0] == '+' || chars[0] == '-') && std::isdigit(chars[1])) ||
+                std::isdigit(chars[0])) {
+                int value = 0;
+                for (const auto& num : chars) {
+                    if (std::isdigit(num)) {
+                        value = value * 10 + (num - '0');
+                    }
+                }
+                if (chars[0] == '-') {
+                    value *= -1;
+                }
+                token_ = ConstantToken(value);
+            } else {
+                std::string extracted;
+                for (const auto& ch : chars) {
+                    if (ch == '\0') {
+                        break;
+                    }
+                    extracted += ch;
+                }
+                token_ = SymbolToken(extracted);
+            }
+        } else {
+            token_ = EndToken();
+        }
+    }
+
+    Token GetToken() {
+        return token_;
+    }
+
+private:
+    std::istream* stream_;
+    Token token_ = EndToken();
+};

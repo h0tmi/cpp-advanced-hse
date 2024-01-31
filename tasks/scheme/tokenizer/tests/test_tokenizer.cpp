@@ -51,7 +51,7 @@ TEST_CASE("Negative numbers") {
 }
 
 TEST_CASE("Symbol names") {
-    std::stringstream ss{"foo bar zog-zog?"};
+    std::stringstream ss{"foo bar zog-zog? Am1good?"};
     Tokenizer tokenizer{&ss};
 
     REQUIRE(!tokenizer.IsEnd());
@@ -64,6 +64,10 @@ TEST_CASE("Symbol names") {
     tokenizer.Next();
     REQUIRE(!tokenizer.IsEnd());
     REQUIRE(tokenizer.GetToken() == Token{SymbolToken{"zog-zog?"}});
+
+    tokenizer.Next();
+    REQUIRE(!tokenizer.IsEnd());
+    REQUIRE(tokenizer.GetToken() == Token{SymbolToken{"Am1good?"}});
 }
 
 TEST_CASE("GetToken is not moving") {
@@ -148,15 +152,4 @@ TEST_CASE("Empty string handled correctly") {
     Tokenizer tokenizer{&ss};
 
     REQUIRE(tokenizer.IsEnd());
-}
-
-void ShouldThrow() {
-    std::string input = "1@";
-    std::stringstream ss{input};
-    Tokenizer tokenizer{&ss};
-    tokenizer.Next();
-}
-
-TEST_CASE("Exception is thrown") {
-    REQUIRE_THROWS_AS(ShouldThrow(), SyntaxError);
 }

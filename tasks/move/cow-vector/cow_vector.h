@@ -2,7 +2,13 @@
 
 #include <cstdint>
 #include <string>
+#include <vector>
 
+struct DataMonitor {
+    int ref_cnt = 1;
+
+    std::vector<std::string> data;
+};
 
 class COWVector {
 public:
@@ -26,4 +32,5 @@ public:
     void Set(size_t at, const std::string& value);
 
 private:
+    DataMonitor* data_monitor_ = nullptr;
 };

@@ -27,7 +27,7 @@ struct Match {
 };
 
 std::ostream& operator<<(std::ostream& out, const Match& m) {
-    out << "File " << m.path << ", line " << m.line << ", column " << m.column << "\n";
+    out << "File " << m.path << ", line " << m.line << ", column " << m.column << " String: \'" << m.after_match.value() << "\'\n";
     return out;
 }
 

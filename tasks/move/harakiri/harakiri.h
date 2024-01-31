@@ -1,5 +1,7 @@
 #pragma once
 
+#include <algorithm>
+#include <memory>
 #include <string>
 
 // Should not allow reuse and yell under sanitizers.
@@ -8,9 +10,20 @@
 
 class OneTimeCallback {
 public:
+    OneTimeCallback() = default;
+    virtual std::string operator()() const&& = 0;
     virtual ~OneTimeCallback() = default;
-    virtual std::string operator()() = 0;
 };
 
-// Implement ctor, operator(), maybe something else...
-class AwesomeCallback : public OneTimeCallback {};
+class AwesomeCallback : public OneTimeCallback {
+public:
+    AwesomeCallback() = default;
+    AwesomeCallback(AwesomeCallback&& other);
+    AwesomeCallback& operator=(AwesomeCallback&& other);
+    AwesomeCallback(const std::string& s);
+    std::string operator()() const&& override final;
+    ~AwesomeCallback();
+
+private:
+    std::string* data_ = nullptr;
+};

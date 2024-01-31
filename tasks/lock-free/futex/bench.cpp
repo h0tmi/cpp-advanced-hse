@@ -18,6 +18,6 @@ void Run(benchmark::State& state) {
     }
 }
 
-BENCHMARK(Run)->UseRealTime()->ThreadRange(1, 8);
+BENCHMARK(Run)->MeasureProcessCPUTime()->UseRealTime()->ThreadRange(1, 8);
 
 BENCHMARK_MAIN();

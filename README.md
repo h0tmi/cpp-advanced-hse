@@ -1,4 +1,6 @@
-Это университетский курс по углубленному изучению C++ пройденный мной.
+This is a university course I successfully finished.
+
+The rest info is for the navigation.
 
 # HSE Advanced C++ course
 

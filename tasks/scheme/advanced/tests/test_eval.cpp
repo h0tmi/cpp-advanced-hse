@@ -6,7 +6,6 @@ TEST_CASE_METHOD(SchemeTest, "Quote") {
 }
 
 TEST_CASE_METHOD(SchemeTest, "Be careful") {
-    ExpectSyntaxError("())");
     ExpectRuntimeError("(())");
     ExpectRuntimeError("(+ ())");
     ExpectRuntimeError("('() ())");

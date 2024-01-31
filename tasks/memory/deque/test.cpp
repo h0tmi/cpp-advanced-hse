@@ -228,3 +228,26 @@ TEST_CASE("Correct work of cycled buffer") {
     }
     Check(b, std::vector<int>(w.begin(), w.end()));
 }
+
+TEST_CASE("Front and back traversing the same block") {
+    Deque a;
+
+    // Traverse a single block
+    const int iterations = 128;
+
+    // PushBack => PopFront
+    for (int i = 0; i < iterations; ++i) {
+        a.PushBack(i);
+        REQUIRE(a[0] == i);
+        a.PopFront();
+    }
+    REQUIRE(a.Size() == 0u);
+
+    // PushFront => PopBack
+    for (int i = 0; i < iterations; ++i) {
+        a.PushFront(i);
+        REQUIRE(a[0] == i);
+        a.PopBack();
+    }
+    REQUIRE(a.Size() == 0u);
+}

@@ -71,8 +71,8 @@ void Reads(benchmark::State& state) {
 
 const int kThreads = std::thread::hardware_concurrency();
 
-BENCHMARK(Half)->Threads(kThreads)->UseRealTime();
-BENCHMARK(ReadOnly)->Threads(kThreads)->UseRealTime();
-BENCHMARK(Reads)->Threads(kThreads)->UseRealTime();
+BENCHMARK(Half)->Threads(kThreads)->MeasureProcessCPUTime()->UseRealTime();
+BENCHMARK(ReadOnly)->Threads(kThreads)->MeasureProcessCPUTime()->UseRealTime();
+BENCHMARK(Reads)->Threads(kThreads)->MeasureProcessCPUTime()->UseRealTime();
 
 BENCHMARK_MAIN();

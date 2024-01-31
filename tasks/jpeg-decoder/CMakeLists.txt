@@ -80,15 +80,13 @@ if (GRADER)
 endif ()
 
 set(DECODER_UTILS_DIR ${CMAKE_CURRENT_SOURCE_DIR}/utils)
-set(DECODER_INCLUDE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/include)
 
 function(link_decoder_deps TARGET)
     target_include_directories(${TARGET} PUBLIC
             ${PNG_INCLUDE_DIRS}
             ${FFTW_INCLUDES}
             ${JPEG_INCLUDE_DIRS}
-            ${DECODER_UTILS_DIR}
-            ${DECODER_INCLUDE_DIR})
+            ${DECODER_UTILS_DIR})
 
     target_link_libraries(${TARGET} PUBLIC
             ${FFTW_LIBRARIES}
