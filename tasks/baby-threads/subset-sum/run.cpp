@@ -34,7 +34,7 @@ void AnswerExists(benchmark::State& state) {
     }
 }
 
-BENCHMARK(NoAnswer)->MeasureProcessCPUTime()->UseRealTime()->Unit(benchmark::kMillisecond);
-BENCHMARK(AnswerExists)->MeasureProcessCPUTime()->UseRealTime()->Unit(benchmark::kMillisecond);
+BENCHMARK(NoAnswer)->UseRealTime()->Unit(benchmark::kMillisecond);
+BENCHMARK(AnswerExists)->UseRealTime()->Unit(benchmark::kMillisecond);
 
 BENCHMARK_MAIN();

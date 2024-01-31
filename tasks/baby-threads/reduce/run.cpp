@@ -23,6 +23,6 @@ void Run(benchmark::State& state) {
     }
 }
 
-BENCHMARK(Run)->Unit(benchmark::kMillisecond)->MeasureProcessCPUTime()->UseRealTime();
+BENCHMARK(Run)->Unit(benchmark::kMillisecond)->UseRealTime();
 
 BENCHMARK_MAIN();

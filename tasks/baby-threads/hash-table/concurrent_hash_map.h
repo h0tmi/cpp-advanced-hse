@@ -26,9 +26,7 @@ public:
         : values_((expected_size + expected_threads_count) / expected_threads_count *
                   expected_threads_count),
           mutexes_(expected_threads_count),
-          hasher_(hasher),
-          bucket_load_((expected_size + expected_threads_count) / expected_threads_count *
-                       expected_threads_count) {
+          hasher_(hasher) {
     }
 
     bool Insert(const K& key, const V& value) {
@@ -45,10 +43,8 @@ public:
         }
         load_.fetch_add(1);
         values_[id].emplace_back(key, value);
-        ++bucket_load_[id];
 
-        if (values_.size() / kLoadFactor <= bucket_load_[id] ||
-            static_cast<double>(load_) / values_.size() >= kLoadFactor) {
+        if (static_cast<double>(load_.load()) / values_.size() >= kLoadFactor) {
             guard.unlock();
             std::vector<std::unique_lock<std::mutex>> locker;
             for (size_t i = 0; i < mutexes_.size(); ++i) {
@@ -56,15 +52,12 @@ public:
                 locker.back().lock();
             }
 
-            std::vector<std::list<std::pair<K, V>>> values(values_.size() * 2);
-            bucket_load_.clear();
-            bucket_load_.resize(values_.size() * 2);
+            std::vector<std::list<std::pair<K, V>>> values(values_.size() * 3);
 
             for (auto& list : values_) {
                 while (!list.empty()) {
                     values[hasher_(list.back().first) % values.size()].emplace_back(
                         list.back().first, list.back().second);
-                    ++bucket_load_[hasher_(list.back().first) % values.size()];
                     list.pop_back();
                 }
             }
@@ -93,7 +86,6 @@ public:
         if (it != bucket.end()) {
             load_.fetch_sub(1);
             values_[GetIndex(key)].erase(it);
-            --bucket_load_[GetIndex(key)];
             guard.unlock();
             return true;
         } else {
@@ -117,8 +109,6 @@ public:
         values_.clear();
         values_.resize(mutexes_.size());
         load_.store(0);
-        bucket_load_.clear();
-        bucket_load_.resize(mutexes_.size());
         for (size_t i = 0; i < mutexes_.size(); ++i) {
             locker.back().unlock();
             locker.pop_back();
@@ -187,7 +177,6 @@ private:
     Hash hasher_;
 
     std::atomic<size_t> load_;
-    std::vector<size_t> bucket_load_;
 };
 
 template <class K, class V, class Hash>

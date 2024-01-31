@@ -1,10 +1,8 @@
 #pragma once
 
-#include <list>
-#include <queue>
-#include <functional>
 #include <mutex>
 #include <condition_variable>
+#include <queue>
 
 class DefaultCallback {
 public:
@@ -20,26 +18,19 @@ public:
 
     void Leave() {
         std::unique_lock<std::mutex> lock(mutex_);
-        if (!queue_.empty()) {
-            queue_.front()();
-            queue_.pop();
-        } else {
-            ++count_;
-        }
+        ++count_;
+        cv_list_.front().notify_one();
     }
 
     template <class Func>
     void Enter(Func callback) {
         std::unique_lock<std::mutex> lock(mutex_);
-        if (!count_) {
-            std::function<void()> wrapper = [this, &callback]() {
-                callback(count_);
-            };
-            queue_.push(wrapper);
-            cv_.wait(lock);
-        } else {
-            callback(count_);
+        cv_list_.emplace();
+        while (!count_) {
+            cv_list_.back().wait(lock);
         }
+        callback(count_);
+        cv_list_.pop();
     }
 
     void Enter() {
@@ -49,7 +40,6 @@ public:
 
 private:
     std::mutex mutex_;
-    std::condition_variable cv_;
+    std::queue<std::condition_variable> cv_list_;
     int count_ = 0;
-    std::queue<std::function<void()>> queue_;
 };

@@ -21,7 +21,6 @@ void CheckNumbers(benchmark::State& state) {
 BENCHMARK(CheckNumbers)
     ->DenseRange(0, static_cast<int>(kNumbers.size()) - 1)
     ->Unit(benchmark::kMicrosecond)
-    ->MeasureProcessCPUTime()
     ->UseRealTime();
 
 BENCHMARK_MAIN();
